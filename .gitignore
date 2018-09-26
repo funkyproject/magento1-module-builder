@@ -1,0 +1,7 @@
+vendor
+composer.lock
+.env
+docker-compose.yml
+magento
+bin
+config
