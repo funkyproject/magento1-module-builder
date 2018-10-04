@@ -1,0 +1,16 @@
+{
+    "packages": {
+        "adexos/magento1-module-builder": {
+            "dev-master": {
+                "name": "adexos/magento1-module-builder",
+                "type": "project",
+                "version": "dev-master",
+                "source": {
+                    "url": "/home/afontaine/www/magento1-module-builder/.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    }
+}
