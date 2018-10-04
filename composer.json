@@ -1,13 +1,32 @@
 {
     "name": "adexos/magento1-module-builder",
     "require-dev": {
-        "wambo/dockerize-magento1": "^0.1.1",
+        "composer/installers": "~1.0",
+        "funkyproject/dockerize-magento1": "^0.1.2",
         "magento-hackathon/magento-composer-installer": "^3.1",
-        "ajbonner/magento-composer-autoload": "^0.1.2"
+        "ajbonner/magento-composer-autoload": "^0.1.2",
+        "firegento/magento": "~1.9.2.2",
+        "aydin-hassan/magento-core-composer-installer": "~1.2",
+        "oomphinc/composer-installers-extender": "dev-master",
+        "jasonlewis/resource-watcher": "1.2.*"
     },
     "extra": {
-        "magento-root-dir": "./magento",
-        "magento-deploystrategy":"copy"
+        "magento-root-dir": "./html",
+        "auto-append-gitignore": true,
+        "magento-force": true,
+        "magento-deploystrategy":"symlink",
+        "include-root-package": true,
+        "magento-deploystrategy-overwrite": {
+            "funkyproject/dockerize-magento1": "copy"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "Adexos\\SymlinkScript::postUpdate",
+        "symlinks": "Adexos\\SymlinkScript::postUpdate",
+        "watch": "Adexos\\SymlinkScript::watch"
+    },
+    "autoload-dev": {
+        "classmap": ["script/"]
     },
     "repositories":[
         {
@@ -17,5 +36,6 @@
     ],
     "config": {
         "secure-http": false
-    }
+    },
+    "minimum-stability": "dev"
 }
